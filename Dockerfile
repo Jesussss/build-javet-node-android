@@ -21,7 +21,7 @@ RUN wget -O cmdline-tools.zip https://dl.google.com/android/repository/commandli
 
 WORKDIR /abc
 
-ARG NODE_VERSION=v20.10.0
+ARG NODE_VERSION=v18.12.1
 
 RUN wget -O node.tar.gz https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION.tar.gz \
     && tar -zxf node.tar.gz && mv node-$NODE_VERSION node \
@@ -30,7 +30,7 @@ RUN wget -O node.tar.gz https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION
 
 ARG JAVET_POINT=main
 
-RUN git clone https://github.com/caoccao/Javet.git javet && cd javet && git switch -c abc $JAVET_POINT \
+RUN git clone https://github.com/caoccao/Javet.git -b 2.0.2 javet && cd javet && git switch -c abc $JAVET_POINT \
     && cp -r . ../javet-ref
 
 RUN apt-get update && apt-get install -y \
