@@ -21,7 +21,7 @@ RUN wget -O cmdline-tools.zip https://dl.google.com/android/repository/commandli
 
 WORKDIR /abc
 
-ARG NODE_VERSION=v18.12.1
+ARG NODE_VERSION=v20.10.0
 
 RUN wget -O node.tar.gz https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION.tar.gz \
     && tar -zxf node.tar.gz && mv node-$NODE_VERSION node \
